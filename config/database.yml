@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+
+development:
+  <<: *default
+  database: tiger_development
+
+test:
+  <<: *default
+  database: tiger_test
+
+production:
+  <<: *default
+  database: tiger_production
+  username: tiger
+  password: <%= ENV["KK_DOG_DATABASE_PASSWORD"] %>
