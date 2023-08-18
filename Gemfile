@@ -52,7 +52,10 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.10"
+gem "shrine", "~> 3.2"
+gem "mini_magick", "~> 4.9", ">= 4.9.2"
+#gem "sidekiq", "~> 6.0", ">= 6.0.3"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
