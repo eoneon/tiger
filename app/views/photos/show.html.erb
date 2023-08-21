@@ -8,6 +8,18 @@
   <h1>Show photo</h1>
 </div>
 
+<div>
+  <% if @photo.image_data? %>
+    <%#= image_tag @photo.image_url(:thumb) %>
+    <img src="<%= @photo.image_url(:thumb)%>" class="rounded img-thumbnail" alt="..." width="300">
+    <p>
+      <%= @photo.title %> | <%= link_to "Edit", edit_photo_path(@photo) %>
+      <%= @photo.image.size %> bytes<br>
+      <%= "#{@photo.image.width}x#{@photo.image.height}" %>
+    </p>
+  <% end %>
+</div>
+
 <dl class="dl-horizontal">
   <dt>Title:</dt>
   <dd><%= @photo.title %></dd>

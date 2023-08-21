@@ -55,6 +55,7 @@ gem 'jquery-ui-rails'
 gem "image_processing", "~> 1.10"
 gem "shrine", "~> 3.2"
 gem "mini_magick", "~> 4.9", ">= 4.9.2"
+gem "fastimage"
 #gem "sidekiq", "~> 6.0", ">= 6.0.3"
 
 group :development, :test do

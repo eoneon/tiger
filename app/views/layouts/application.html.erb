@@ -12,7 +12,33 @@
 
   <body class="bg-light">
     <div class="container">
-    <%= yield %>
+
+      <nav class="navbar navbar-expand bg-dark fixed-top mb-5">
+        <div class="container-fluid">
+          <a class="navbar-brand sexy_text text-danger fs-1" href="#">Josh Exotic's Prviate Parts</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div  class="d-flex">
+            <div class="collapse navbar-collapse">
+              <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a href="<%= new_photo_path %>" class="nav-link text-danger">
+                    Add New Photo
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <br>
+      <br>
+      <br>
+
+      <%= yield %>
     </div>
   </body>
 </html>
