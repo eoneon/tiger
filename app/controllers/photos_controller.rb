@@ -38,8 +38,11 @@ class PhotosController < ApplicationController
   # PATCH/PUT /photos/1 or /photos/1.json
   def update
     @photo = Photo.find(params[:id])
+    @photo.assign_attributes(photo_params)
+    #valid_checkbox_vals
+
     respond_to do |format|
-      if @photo.update_attributes(photo_params)
+      if @photo.save #update_attributes(photo_params)
         format.html { redirect_to photo_url(@photo), notice: "Photo was successfully updated." }
         format.json { render :show, status: :ok, location: @photo }
       else
@@ -67,6 +70,6 @@ class PhotosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def photo_params
-      params.require(:photo).permit(:title, :image)
+      params.require(:photo).permit!
     end
 end

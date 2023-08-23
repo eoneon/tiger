@@ -1,4 +1,5 @@
 <%= form_with(model: photo, local: true) do |form| %>
+  <%#= hidden_field_tag "photo[tags][]", nil %>
   <% if photo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
@@ -22,6 +23,8 @@
     <%= form.hidden_field :image, value: form.object.cached_image_data %>
     <%= form.file_field :image, class: 'form-control' %>
   </div>
+
+  <%= render 'photos/tags', f: form, photo: photo %>
 
   <div class="form-group">
     <% if photo.persisted? %>
