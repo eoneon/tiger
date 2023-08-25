@@ -1,0 +1,3 @@
+<%= form_for Photo.new, url: {controller: "search_photos", action: "index"}, method: "get", id: "photo-search", remote: true do |f| %>
+  <%= f.hidden_field "tags" %>
+<% end %>

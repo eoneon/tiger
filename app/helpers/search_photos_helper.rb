@@ -1,0 +1,2 @@
+module SearchPhotosHelper
+end

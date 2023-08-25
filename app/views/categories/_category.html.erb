@@ -2,6 +2,9 @@
   <p>
     <strong>Category name:</strong>
     <%= category.category_name %>
+    <%= category.category_type %>
+    
+    <%= link_to "Edit", edit_category_path(category), class: 'btn btn-sm btn-primary' %>
   </p>
 
 </div>

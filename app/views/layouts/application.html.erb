@@ -10,7 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-light">
+  <body class="bg-danger">
     <div class="container">
 
       <nav class="navbar navbar-expand-lg bg-dark fixed-top mb-5">
@@ -24,6 +24,16 @@
             <div class="collapse navbar-collapse d-flex">
               <ul class="navbar-nav">
                 <li class="nav-item">
+                  <a href="<%= photos_path %>" class="nav-link text-danger">
+                    Photos
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<%= categories_path %>" class="nav-link text-danger">
+                    Categories
+                  </a>
+                </li>
+                <li class="nav-item">
                   <a href="<%= new_photo_path %>" class="nav-link text-danger">
                     Add New Photo
                   </a>
@@ -33,16 +43,6 @@
                     Add Categories
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="<%= photos_path %>" class="nav-link text-danger">
-                    Photos 
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="<%= categories_path %>" class="nav-link text-danger">
-                    Categories
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -50,6 +50,7 @@
         </div>
       </nav>
 
+      <br>
       <br>
       <br>
       <br>

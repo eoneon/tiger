@@ -1,0 +1,6 @@
+<div class="list-group" id="tab-index" role="tablist">
+  <%= render "search_photos/form" %>
+  <% Category.all.each do |category| %>
+    <%= render "search_photos/tab", category: category %>
+  <% end %>
+</div>
