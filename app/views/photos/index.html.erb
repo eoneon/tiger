@@ -1,11 +1,22 @@
-<div class="row mt-5">
-  <div class="col-2">
-    <%= render 'search_photos/aside' %>
+<div class="row">
+  <div class="col-3 sidebar">
+    <% category_filter.each do |category_type, categories| %>
+      <%= render 'search_photos/sidebar', category_type: category_type, categories: categories %>
+    <% end %>
   </div>
 
-  <div class="col-9 bg-dark">
-    <div class="row row-cols-1 row-cols-md-5 g-4 mt-5 bg-dark" id="photos-index">
-      <%= render 'photos/index', photos: @photos %>
+  <div class="col-6 bg-dark rounded">
+    <div class="row row-cols-1 row-cols-md-4 g-4 mt-5 bg-dark" id="photos-index">
+      <%= render 'photos/index', photos: @photos.limit(12) %>
     </div>
   </div>
+
+  <div class="col-3">
+    <img src="../../../assets/penis_pump_1.png" class="rounded float-end img-thumbnail" alt="..." width="400">
+    <img src="../../../assets/hookup_1.png" class="rounded float-end img-thumbnail" alt="..." width="400">
+  </div>
+</div>
+
+<div class="row" id="pagination-nav">
+  <%= render 'search_photos/pagination_nav', photos: nil, tags: nil, page: @page %>
 </div>

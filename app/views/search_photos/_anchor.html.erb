@@ -1,0 +1,3 @@
+<%= link_to search_photos_path(:tags=> category.id, :sort=>[], :page=>1), remote: true, class: "list-group-item list-group-item-action bg-dark border border-danger py-1 text-warning", id: category.id do %>
+  <%= category.category_name %>
+<% end %>

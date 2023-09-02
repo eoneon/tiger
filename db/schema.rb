@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_23_182948) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_29_220601) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_182948) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.hstore "tags"
+    t.integer "sort"
   end
 
 end

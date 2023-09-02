@@ -1,0 +1,9 @@
+<div class="sexy_text text-danger text-center fs-1 border border-warning bg-dark border-5 rounded mb-1 p-0">
+  <%= category_type.pluralize %>
+</div>
+
+<div class="list-group border border-warning mb-3" id="tab-index" role="tablist">
+  <% categories.each do |category| %>
+    <%= render "search_photos/anchor", category: category %>
+  <% end %>
+</div>

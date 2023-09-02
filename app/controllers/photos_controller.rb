@@ -2,7 +2,8 @@ class PhotosController < ApplicationController
   before_action :set_photo, only: %i[ show edit update destroy ]
 
   def index
-    @photos = Photo.all
+    @photos = Photo.all.order(:sort) 
+    @page, @tags = 1, nil
   end
 
   # GET /photos/1 or /photos/1.json

@@ -1,1 +1,2 @@
 $("#photos-index").html("<%= j render 'photos/index', photos: @photos %>");
+$("#pagination-nav").html("<%= j render 'search_photos/pagination_nav', photos: @nav_photos, tags: @tags, page: @page %>");

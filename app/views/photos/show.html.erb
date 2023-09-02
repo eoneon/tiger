@@ -5,6 +5,7 @@
       <dd><%= image_tag @photo.image_url if @photo.image %></dd>
       <dd><%= @photo.image.size %> Bytes</dd>
       <dd><%= "#{@photo.image.width}x#{@photo.image.height}" %> Dimensions</dd>
+      <%= link_to 'Destroy', @photo, method: :delete, class: "text-warning", data: { confirm: 'Are you sure?' } %>
     </dl>
   <% end %>
 </div>

@@ -1,9 +1,9 @@
-<% Category.all.pluck(:category_name).each do |tag_name| %>
+<% name_and_val.each do |category_name, category_id| %>
   <div class="form-row">
     <%= f.fields_for :tags, OpenStruct.new(photo.tags) do |ff| %>
         <div class="form-group">
-          <%= ff.label tag_name %>
-          <%= ff.check_box tag_name, {checked: selected_checkbox(photo, tag_name)}, tag_name, true  %>
+          <%= ff.label category_name %>
+          <%= ff.check_box category_id, {checked: selected_checkbox(photo, category_id)}, category_id, true  %>
         </div>
     <% end %>
   </div>

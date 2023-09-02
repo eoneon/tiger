@@ -1,6 +1,5 @@
-<div class="list-group" id="tab-index" role="tablist">
-  <%= render "search_photos/form" %>
+<div class="list-group border border-warning" id="tab-index" role="tablist">
   <% Category.all.each do |category| %>
-    <%= render "search_photos/tab", category: category %>
+    <%= render "search_photos/anchor", category: category %>
   <% end %>
 </div>

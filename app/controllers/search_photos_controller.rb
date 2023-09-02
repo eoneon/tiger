@@ -1,9 +1,10 @@
 class SearchPhotosController < ApplicationController
   def index
-    @photos = Photo.index_query("tags", search_params)
+    @nav_photos, @photos = Photo.search_index_with_pagination(search_params) 
+    @page, @tags = params[:page].to_i, params[:tags]
 
     respond_to do |format|
-      format.js 
+      format.js
     end
 
   end
@@ -11,12 +12,12 @@ class SearchPhotosController < ApplicationController
   private
 
   def search_params
-    params[:photo][:tags]
+    format_params
+  end
+
+  def format_params(param_keys: [:sort, :tags], hstor: :tags)
+    param_keys.each_with_object({}) do |k,h|
+      Photo.case_merge(h, params[k], (k==hstor ? :hstor : :attrs), k)
+    end
   end
 end
-
-# @photos = Photo.hstore_query(search_params, "tags")
-# def search_params
-#   p_hsh = params[:photo].to_unsafe_h
-#   p_hsh["tags"].blank? ? p_hsh : {p_hsh["tags"] => p_hsh["tags"]}
-# end

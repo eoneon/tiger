@@ -1,0 +1,11 @@
+<nav>
+  <ul class="pagination justify-content-center">
+    <% Photo.sort_pagination_params(photos: photos).each do |sort_hsh| %>
+      <li class="page-item <%= is_active(sort_hsh[:page], page)%>">
+        <%= link_to search_photos_path(:tags=> tags, :sort=> sort_hsh[:sort], :page=> sort_hsh[:page]), remote: true, class: "page-link", id: sort_hsh[:page] do %>
+          <%= sort_hsh[:page] %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</nav>

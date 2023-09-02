@@ -10,10 +10,10 @@ import * as jq from 'jquery';
 
 $(document).ready(function(){
 
-  $("body").on("click", "button.list-group-item", function(){
-    toggleActive($(this), $(this).closest(".list-group").find("button.active")); //navbar($(this))
-    var f = setHiddenInputs("input:hidden[name='photo[tags]']", $(this).attr("id"));
-    $(f).closest("form").submit();
+  $("body").on("click", "a.list-group-item", function(){
+    toggleActive($(this), $(this).closest(".sidebar").find("a.active")); //navbar($(this))
+    //var f = setHiddenInputs("input:hidden[name='photo[tags]']", $(this).attr("id"));
+    //$(f).closest("form").submit();
   });
 });
 

@@ -1,11 +1,11 @@
-<div class="col">
-  <div class="card text-bg-dark mb-3 mt-3 pb-3" style="">
+<div class="col mt-0 pt-0">
+  <div class="card text-bg-dark border border-danger mb-3 pb-3">
     <% if photo.image_data? %>
       <a href="<%= photo_path(photo) %>">
         <img src="<%= photo.image_url(:thumb)%>" class="card-img-top bg-danger" alt="...">
       </a>
       <div class="card-body">
-        <h5 class="card-title"><%= photo.title %></h5>
+        <h6 class="card-title"><%= photo.title %></h5>
       </div>
     <% end %>
   </div>
