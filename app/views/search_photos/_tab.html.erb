@@ -5,3 +5,25 @@
     </div>
   </div>
 </button>
+
+<div class="form-group">
+  <%= form.label :image %>
+  <%= image_tag form.object.image_url if form.object.cached_image_data %>
+  <%= form.hidden_field :image, value: form.object.cached_image_data %>
+  <%= form.file_field :image, class: 'form-control' %>
+</div>
+
+<%= form.input :image,
+  type: :file,
+  attr: { accept: ImageUploader::ALLOWED_TYPES.join(",") },
+  class: "form-control" %>
+
+<!-- for storing uploaded file data -->
+<%= form.input :image,
+  type: :hidden,
+  error_handler: false,
+  class: "upload-data",
+  value: photo.cached_image_data %>
+
+<img src="<%= photo.image_url(:small) %>" height="50" class="rounded" \>
+<script src="https://transloadit.edgly.net/releases/uppy/v1.6.0/uppy.min.js"></script>

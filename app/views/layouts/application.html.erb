@@ -6,6 +6,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"></script>
+    <%= tag.meta name: "direct-upload-url", content: rails_direct_uploads_path %>
+    <link href="https://releases.transloadit.com/uppy/v2.1.0/uppy.min.css" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
@@ -58,5 +61,7 @@
 
       <%= yield %>
     </div>
+
+    <script src="https://releases.transloadit.com/uppy/v2.1.0/uppy.min.js"></script>
   </body>
 </html>

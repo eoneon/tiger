@@ -10,7 +10,7 @@ module Sort
       end
     end
 
-    def sort_pagination_params(photos: nil, limit: 12)
+    def sort_pagination_params(photos: nil, limit: 9)
       sorts, a = sort_vals(photos), []
       (sorts[-1].to_f/limit).ceil.times do |i|
         a << {sort: sorts.take(limit), page: (i+1)}

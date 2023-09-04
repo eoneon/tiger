@@ -2,10 +2,10 @@
   <div class="card text-bg-dark border border-danger mb-3 pb-3">
     <% if photo.image_data? %>
       <a href="<%= photo_path(photo) %>">
-        <img src="<%= photo.image_url(:thumb)%>" class="card-img-top bg-danger" alt="...">
+        <img src="<%= photo.image_url %>" height="150" class="card-img-top bg-danger" alt="...">
       </a>
       <div class="card-body">
-        <h6 class="card-title"><%= photo.title %></h5>
+        <span class="fs-6"><%= photo.title %></span>
       </div>
     <% end %>
   </div>

@@ -1,3 +1,5 @@
+require "./uploaders/image_uploader"
+
 class Photo < ApplicationRecord
   include Search
   include Sort
