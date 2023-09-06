@@ -1,7 +1,7 @@
 # This is a general base configuration for Shrine in the app.
 # It's typically placed in a `config` and/or `initializers` folder.
 
-require "./config/credentials"
+#require "./config/credentials"
 require "shrine"
 require "dry-monitor"
 

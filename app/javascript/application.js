@@ -11,31 +11,59 @@ import * as jq from 'jquery';
 // import Uppy from '@uppy/core'
 // import ActiveStorageUpload from '@excid3/uppy-activestorage-upload'
 
-$(document).ready(function(){
-
+$(document).on('turbo:load', function(){
   $("body").on("click", "a.list-group-item", function(){
-    toggleActive($(this), $(this).closest(".sidebar").find("a.active"));
+    toggleAnchorActive(checkClassState($(this), "active"), $(this), $(this).closest(".sidebar").find("a.active"), $(this).attr("id").toString(), $(this).attr("href"), "tags")
   });
 });
 
-function toggleActive(a, sibling) {
-  var state = toggleIntraClass(a, "active");
-  if (state==true) $(sibling).removeClass("active");
+function toggleAnchorActive(state, a, sibling, id, href, key){
+  var href = href.slice(0, href.indexOf(key))+key+"="+(state==true ? [] : id);
+  $(a).attr("href", href);
+  toggleClass(a, "active text-danger");
+  if (state==false) $(sibling).removeClass("active text-danger");
 }
-//TOGGLE CLASS (BINARY)
-function toggleIntraClass(target, klass) {
-  $(target).hasClass(klass) ? $(target).removeClass(klass) : $(target).addClass(klass);
+function checkClassState(target, klass) {
   return $(target).hasClass(klass) ? true : false
 }
-function setHiddenInputs(hidden_field, id) {
-  var search_id = $(hidden_field).val();
-  if (search_id == id) {
-    $(hidden_field).val("");
-  } else if (search_id == undefined || search_id != id) {
-    $(hidden_field).val(id);
-  }
-  return hidden_field
+function toggleClass(target, klass) {
+  $(target).hasClass(klass) ? $(target).removeClass(klass) : $(target).addClass(klass);
 }
+
+// function update_href(a, id, href) {
+//   var href = href.replace(id, []);
+//   $(a).attr("href", href);
+// }
+
+// function toggleActive(a, sibling) {
+//   var state = toggleIntraClass(a, "active");
+//   if (state==true) {
+//     toggleClass(a, "text-danger");
+//     $(sibling).removeClass("active text-danger");
+//   } else{
+//     $(a).removeClass("text-danger");
+//   }
+//   return state
+// }
+
+//TOGGLE CLASS (BINARY)
+// function toggleIntraClass(target, klass) {
+//   toggleClass(target, klass); //$(target).hasClass(klass) ? $(target).removeClass(klass) : $(target).addClass(klass);
+//   return $(target).hasClass(klass) ? true : false
+// }
+
+// function setHiddenInputs(hidden_field, id) {
+//   var search_id = $(hidden_field).val();
+//   if (search_id == id) {
+//     $(hidden_field).val("");
+//   } else if (search_id == undefined || search_id != id) {
+//     $(hidden_field).val(id);
+//   }
+//   return hidden_field
+// }
+// function toggleIndexResults(a) {
+//   var [type, name, count] = [$(a).data("type"), $(a).data("name"), $(a).data("count")];
+// }
 
 // const singleFileUpload = (fileInput) => {
 //   const imagePreview = document.getElementById(fileInput.dataset.previewElement)

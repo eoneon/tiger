@@ -4,6 +4,51 @@ module Sort
 
   class_methods do
 
+    def sort_up
+      photo = Photo.find(params[:id])
+      Photo.swap_sort(photo, -1)
+
+      respond_to do |format|
+        format.js {render file: "/photos/index.js.erb"}
+      end
+    end
+
+    def sort_down
+      photo = Photo.find(params[:id])
+      Photo.swap_sort(photo, 1)
+
+      respond_to do |format|
+        format.js {render file: "/photos/index.js.erb"}
+      end
+    end
+
+    def destroy
+      sort = @photo.sort
+
+      if @photo.destroy
+        reset_sort(sort)
+
+        respond_to do |format|
+          format.js {render file: "/photos/index.js.erb"}
+        end
+      end
+    end
+
+    def swap_sort(photo, pos)
+      sort = photo.sort
+      sort2 = pos == -1 ? sort - 1 : sort + 1
+      photo2 = where(sort: sort2)
+      photo2.update(sort: photo.sort)
+      photo.update(sort: sort2)
+    end
+
+    def reset_sort(sort)
+      where("sort > ?", sort).each do |photo|
+        photo.update(sort: photo.sort - 1)
+      end
+    end
+
+
     def initial_sort
       all.each_with_index do |photo, i|
         photo.update(sort: (i+1))

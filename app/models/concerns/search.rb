@@ -19,6 +19,7 @@ module Search
 
 
     # hstore query/params methods ##############################################
+    #data: {name: category.category_name, type: category.category_type, count: category_count(photos, category)}
     # def index_search(search_params)
     #   set = hattr_index_query(all, search_params[:hstor])
     #   attr_index_query(set, search_params[:attrs])

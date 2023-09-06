@@ -1,2 +1,3 @@
-$("#photos-index").html("<%= j render 'photos/index', photos: @photos %>");
+$("#photos-index").html("<%= j render 'photos/index', photos: @photos.limit(9) %>");
 $("#pagination-nav").html("<%= j render 'search_photos/pagination_nav', photos: @nav_photos, tags: @tags, page: @page %>");
+$("#photos-tag").html("<%= j render 'categories/header', displayed_photos: @photos.limit(9), total_photos: @nav_photos, category: @category %>");

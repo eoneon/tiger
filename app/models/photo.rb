@@ -4,7 +4,7 @@ class Photo < ApplicationRecord
   include Search
   include Sort
   include Hashable
-  include ImageUploader::Attachment(:image) # adds an `image` virtual attribute
+  include ImageUploader::Attachment(:image) 
   attr_accessor :page
 
   validates :title, presence: true

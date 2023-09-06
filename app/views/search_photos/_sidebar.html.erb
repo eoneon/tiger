@@ -4,6 +4,6 @@
 
 <div class="list-group border border-warning mb-3" id="tab-index" role="tablist">
   <% categories.each do |category| %>
-    <%= render "search_photos/anchor", category: category %>
+    <%= render "search_photos/anchor", category: category, photos: photos %>
   <% end %>
 </div>

@@ -2,7 +2,8 @@ class PhotosController < ApplicationController
   before_action :set_photo, only: %i[ show edit update destroy ]
 
   def index
-    @photos = Photo.all.order(:sort) 
+    @photos_for_sidebar = Photo.all.order(:sort)
+    @photos = @photos_for_sidebar.limit(9)
     @page, @tags = 1, nil
   end
 
