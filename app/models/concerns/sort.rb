@@ -4,35 +4,35 @@ module Sort
 
   class_methods do
 
-    def sort_up
-      photo = Photo.find(params[:id])
-      Photo.swap_sort(photo, -1)
+    # def sort_up
+    #   photo = Photo.find(params[:id])
+    #   Photo.swap_sort(photo, -1)
+    #
+    #   respond_to do |format|
+    #     format.js {render file: "/photos/index.js.erb"}
+    #   end
+    # end
+    #
+    # def sort_down
+    #   photo = Photo.find(params[:id])
+    #   Photo.swap_sort(photo, 1)
+    #
+    #   respond_to do |format|
+    #     format.js {render file: "/photos/index.js.erb"}
+    #   end
+    # end
 
-      respond_to do |format|
-        format.js {render file: "/photos/index.js.erb"}
-      end
-    end
-
-    def sort_down
-      photo = Photo.find(params[:id])
-      Photo.swap_sort(photo, 1)
-
-      respond_to do |format|
-        format.js {render file: "/photos/index.js.erb"}
-      end
-    end
-
-    def destroy
-      sort = @photo.sort
-
-      if @photo.destroy
-        reset_sort(sort)
-
-        respond_to do |format|
-          format.js {render file: "/photos/index.js.erb"}
-        end
-      end
-    end
+    # def destroy
+    #   sort = @photo.sort
+    #
+    #   if @photo.destroy
+    #     reset_sort(sort)
+    #
+    #     respond_to do |format|
+    #       format.js {render file: "/photos/index.js.erb"}
+    #     end
+    #   end
+    # end
 
     def swap_sort(photo, pos)
       sort = photo.sort

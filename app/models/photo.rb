@@ -1,10 +1,10 @@
-require "./uploaders/image_uploader"
+require "./app/uploaders/image_uploader"
 
 class Photo < ApplicationRecord
   include Search
   include Sort
   include Hashable
-  include ImageUploader::Attachment(:image) 
+  include ImageUploader::Attachment(:image)
   attr_accessor :page
 
   validates :title, presence: true
