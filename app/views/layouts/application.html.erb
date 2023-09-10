@@ -12,8 +12,6 @@
 
   <body class="bg-danger">
     <div class="container">
-    <%= render "search_photos/form" %>
-
       <nav class="navbar navbar-expand-lg bg-dark fixed-top mb-5">
         <div class="container-fluid">
           <a class="navbar-brand sexy_text text-warning fs-1" href="#">Josh Exotic's Prviate Parts</a>
@@ -60,7 +58,8 @@
       <br>
       <br>
       <br>
-
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
 
