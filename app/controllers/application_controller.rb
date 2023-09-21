@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  def after_sign_in_path_for(resource)
+    photos_path(current_user) 
+  end
+
   private
 
   def user_not_authorized(exception)

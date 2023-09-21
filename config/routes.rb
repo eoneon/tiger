@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #get 'welcome/about'
   mount Lockup::Engine, at: '/lockup'
   devise_for :users
 
@@ -9,5 +10,5 @@ Rails.application.routes.draw do
   resources :search_photos
   resources :sort_photos
 
-  root "photos#index"
+  root "welcome#about"
 end
