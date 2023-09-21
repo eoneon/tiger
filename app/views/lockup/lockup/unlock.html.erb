@@ -1,44 +1,18 @@
-<div class="container">
-  <div class="row row-cols-2 justify-content-between align-items-center">
+<div class="row align-items-center justify-content-between bg-dark my-3 mx-0 p-3">
+  <div class="col-4 text-start">
+    <span class="text-warning sexy_text fs-1">What's the Magic Word?</span>
+  </div>
 
-    <div class="col-6">
-      <h1 class="sexy_text text-warning fs-1">What's the Magic Word?</h1>
-
-      <% if @wrong %>
-        <div class="hmm">
-          <h3>Hmm&hellip; that doesn&#8217;t seem right. Try again?</h3>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="col-4">
-      <div class="row justify-content-end align-items-center">
-
-        <%= form_for :lockup, url: { action: 'unlock' } do |form| %>
-
-          <div class="input-group m-2">
-            <% unless @wrong == true %>
-              <%= form.password_field "codeword", placeholder: "code word", autofocus: true, class: 'form-control' %>
-            <% else %>
-              <%= form.password_field "codeword", value: @codeword, class: 'nope', autofocus: true %>
-            <% end %>
-
-            <% if lockup_hint %>
-              <p id='hint_icon'>?</p>
-              <p id='hint'><%= lockup_hint %></p>
-            <% end %>
-
-            <% if params[:return_to].present? %>
-              <%= form.hidden_field "return_to", value: params[:return_to] %>
-            <% elsif @return_to.present? %>
-              <%= form.hidden_field "return_to", value: @return_to %>
-            <% end %>
-
-            <%= button_tag "Go!", class: "btn btn-primary" %>
-          </div>
-
+  <div class="col-4">
+    <%= form_for :lockup, url: { action: 'unlock' } do |form| %>
+      <div class="input-group">
+        <% unless @wrong == true %>
+          <%= form.password_field "codeword", placeholder: "code word", autofocus: true, class: 'form-control' %>
+        <% else %>
+          <%= form.password_field "codeword", value: @codeword, class: 'nope', autofocus: true, class: 'form-control' %>
         <% end %>
+        <%= button_tag "Go!", class: "btn btn-primary" %>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

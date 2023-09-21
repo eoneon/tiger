@@ -1,10 +1,11 @@
+<h1 class="sexy_text"><%= @photo.title %></h1>
 <div>
   <% if @photo.image_data? %>
     <dl class="dl-horizontal">
-      <dd><%= @photo.title %> <%= link_to "Edit", edit_photo_path(@photo) %></dd>
-      <dd><%= image_tag @photo.image_url(:large) if @photo.image %></dd>
+      <dd><%= image_tag @photo.image_url(:medium) if @photo.image %></dd>
       <dd><%= @photo.image.size %> Bytes</dd>
       <dd><%= "#{@photo.image.width}x#{@photo.image.height}" %> Dimensions</dd>
+      <dd><%= link_to "Edit", edit_photo_path(@photo) %></dd>
       <%= link_to 'Destroy', @photo, method: :delete, class: "text-warning", data: { confirm: 'Are you sure?' } %>
     </dl>
   <% end %>
