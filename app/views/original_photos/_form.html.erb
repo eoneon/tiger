@@ -1,0 +1,36 @@
+<%= form_with(model: original_photo, url: [photo, original_photo], local: true) do |form| %>
+  <% if original_photo.persisted? && original_photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(original_photo.errors.count, "error") %> prohibited this original_photo from being saved:</h2>
+
+      <ul>
+      <% original_photo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :image %>
+    <%= image_tag form.object.image_url if form.object.cached_image_data %>
+    <%= form.hidden_field :image, value: form.object.cached_image_data %>
+    <%= form.file_field :image, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <% if original_photo.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', [photo, original_photo], method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if original_photo.persisted? %>
+      <%#= link_to "Cancel", original_photo, class: "btn btn-link" %>
+    <% else %>
+      <%#= link_to "Cancel", original_photos_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

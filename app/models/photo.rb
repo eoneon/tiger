@@ -7,6 +7,8 @@ class Photo < ApplicationRecord
   include ImageUploader::Attachment(:image)
   attr_accessor :page
 
+  has_one :original_photo
+
   validates :title, presence: true
 
   before_save :valid_checkbox_vals

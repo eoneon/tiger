@@ -1,0 +1,9 @@
+<div class="col-6">
+  <% if original_photo && original_photo.image_data? %>
+    <dl class="dl-horizontal">
+      <dd><%= image_tag original_photo.image_url(:small) if original_photo.image %></dd>
+      <%= link_to "Edit", edit_photo_original_photo_path(original_photo.photo, original_photo) %></dd>
+      <%= link_to 'Destroy', [original_photo.photo, original_photo], method: :delete, class: "text-warning", data: { confirm: 'Are you sure?' } %>
+    </dl>
+  <% end %>
+</div>

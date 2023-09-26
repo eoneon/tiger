@@ -1,12 +1,20 @@
-<h1 class="sexy_text"><%= @photo.title %></h1>
-<div>
-  <% if @photo.image_data? %>
-    <dl class="dl-horizontal">
-      <dd><%= image_tag @photo.image_url(:medium) if @photo.image %></dd>
-      <dd><%= @photo.image.size %> Bytes</dd>
-      <dd><%= "#{@photo.image.width}x#{@photo.image.height}" %> Dimensions</dd>
-      <dd><%= link_to "Edit", edit_photo_path(@photo) %></dd>
-      <%= link_to 'Destroy', @photo, method: :delete, class: "text-warning", data: { confirm: 'Are you sure?' } %>
-    </dl>
-  <% end %>
+<div class="row text-center">
+  <div class="col-9">
+    <h1 class="sexy_text fs-1"><%= @photo.title %></h1>
+    <% if @photo.image_data? %>
+      <dl class="dl-horizontal">
+        <dd><%= image_tag @photo.image_url(:large) if @photo.image %></dd>
+        <dd><%= @photo.image.size %> Bytes</dd>
+        <dd><%= "#{@photo.image.width}x#{@photo.image.height}" %> Dimensions</dd>
+        <dd><%= link_to "Edit", edit_photo_path(@photo) %></dd>
+        <%= link_to 'Destroy', @photo, method: :delete, class: "text-warning", data: { confirm: 'Are you sure?' } %>
+      </dl>
+    <% end %>
+  </div>
+  <div class="col-3 mt-4">
+    <h1 class="fs-5">Original Photo</h1>
+    <%= render 'original_photos/original_photo', photo: @photo, original_photo: @photo.original_photo %>
+    <img src="../../../assets/penis_growth.png" class="rounded float-end img-thumbnail" alt="..." width="400">
+  </div>
+
 </div>
