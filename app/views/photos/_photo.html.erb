@@ -2,7 +2,7 @@
   <div class="card text-bg-dark border border-danger mb-3 pb-3">
     <% if photo.image_data? %>
       <a href="<%= photo_path(photo) %>">
-        <img src="<%= photo.image_url %>" height="150" class="card-img-top bg-danger" alt="...">
+        <img src="<%= photo.image_url %>" height="125" class="card-img-top bg-danger" alt="...">
       </a>
       <div class="card-body">
         <span class="fs-6"><%= photo.title %></span>

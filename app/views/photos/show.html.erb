@@ -1,5 +1,5 @@
-<div class="row text-center">
-  <div class="col-9">
+<div class="row justify-content-between text-center">
+  <div class="col-8 pr-3">
     <h1 class="sexy_text fs-1"><%= @photo.title %></h1>
     <% if @photo.image_data? %>
       <dl class="dl-horizontal">
@@ -11,7 +11,7 @@
       </dl>
     <% end %>
   </div>
-  <div class="col-3 mt-4">
+  <div class="col-3 pl-3 mt-4">
     <h1 class="fs-5">Original Photo</h1>
     <%= render 'original_photos/original_photo', photo: @photo, original_photo: @photo.original_photo %>
     <img src="../../../assets/penis_growth.png" class="rounded float-end img-thumbnail" alt="..." width="400">

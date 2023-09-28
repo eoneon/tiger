@@ -1,6 +1,6 @@
 class OriginalPhotosController < ApplicationController
   before_action :set_original_photo, only: %i[ show edit update destroy ]
-  before_action :set_photo, only: %i[ new create ]
+  before_action :set_photo, only: %i[ new create destroy]
   # GET /original_photos/1 or /original_photos/1.json
   def show
   end

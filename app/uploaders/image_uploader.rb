@@ -10,7 +10,7 @@ class ImageUploader < Shrine
   THUMBNAILS = {
     small:  [300, 300],
     medium: [600, 600],
-    large:  [800, 800],
+    large:  [950, 950],
   }
 
   plugin :remove_attachment
